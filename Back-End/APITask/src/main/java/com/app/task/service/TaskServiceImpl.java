@@ -43,14 +43,11 @@ public class TaskServiceImpl implements TaskService{
 
 	@Override
 	public Task findById(Long id) {
-		return taskRepository.findById(id)
-		        .orElseThrow(() -> new ResourceNotFoundException());
-		/*Task task = taskRepository.findById(id).orElseThrow(
+		return taskRepository.findById(id).orElseThrow(
 				()->{
-					throw new ResourceNotFoundException();
+					throw new ResourceNotFoundException("No se encontró la tarea con ID: " + id);
 				}
-				);*/
-		//return taskRepository.findById(id).get();
+				);
 	}
 
 }

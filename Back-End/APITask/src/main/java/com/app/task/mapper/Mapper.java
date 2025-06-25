@@ -20,8 +20,18 @@ public class Mapper {
 		}
 	}
 	
-	public static Task dtoToEntity(TaskDto TaskDto) {
-		return null;
+	public static Task dtoToEntity(TaskDto taskDto) {
+		if(taskDto==null) {
+			return null;
+		}else {
+			Task task = new Task();
+			task.setId(taskDto.getId());
+			task.setTitle(taskDto.getTitle());
+			task.setDescription(taskDto.getDescription());
+			task.setStatus(taskDto.getStatus());
+			return task;
+		}
+		
 		
 	}
 }

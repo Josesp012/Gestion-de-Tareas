@@ -43,7 +43,7 @@ public class Task {
 	
 	@Column(name="TITLE")
 	@NotBlank(message="El nombre del titulo es obligatorio")
-	@Size(min=1,max=50,message="El nombre del titulo debe tener entre 1 y 50 caracteres")
+	@Size(min=1,max=20,message="El nombre del titulo debe tener entre 1 y 20 caracteres")
 	private String title;
 	
 	@Column(name="DESCRIPTION_TASK")
