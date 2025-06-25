@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.app.task.exception.ResourceNotFoundException;
 import com.app.task.model.entity.Task;
 import com.app.task.model.repository.TaskRepository;
 
@@ -18,7 +19,11 @@ public class TaskServiceImpl implements TaskService{
 
 	@Override
 	public Task post(Task task) {
-		return taskRepository.save(task);
+		try {
+			return taskRepository.save(task);
+		}catch(Exception e) {
+			return null;
+		}
 	}
 
 	@Override
@@ -38,8 +43,14 @@ public class TaskServiceImpl implements TaskService{
 
 	@Override
 	public Task findById(Long id) {
-		// TODO Auto-generated method stub
-		return null;
+		return taskRepository.findById(id)
+		        .orElseThrow(() -> new ResourceNotFoundException());
+		/*Task task = taskRepository.findById(id).orElseThrow(
+				()->{
+					throw new ResourceNotFoundException();
+				}
+				);*/
+		//return taskRepository.findById(id).get();
 	}
 
 }

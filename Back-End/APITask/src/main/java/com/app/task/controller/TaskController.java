@@ -8,12 +8,14 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.app.task.model.entity.Task;
 import com.app.task.service.TaskService;
 
 @RestController
+@RequestMapping("/api/tasks") // http://localhost:8080/api/tasks
 public class TaskController {
 	
 	private final TaskService taskService;
@@ -22,24 +24,25 @@ public class TaskController {
 		this.taskService = taskService;
 	}
 	
-	//localhost:8080/post
+	// http://localhost:8080/api/tasks Peticion tipo Post
 	@PostMapping("/post")
 	public Task post(@RequestBody Task task) { //RequestBody transforma el Json en objeto
 		return taskService.post(task);
 	}
 	
-	//localhost:8080/
+	// http://localhost:8080/api/tasks Peticion tipo Get
 	@GetMapping
 	public List<Task> findAll() { //RequestBody transforma el Json en objeto
 		return taskService.findAll();
 	}
 	
-	//localhost:8080/id
+	// http://localhost:8080/api/tasks/1 Peticion tipo Delete
 	@DeleteMapping("/{id}")
 	public void deleteById(@PathVariable Long id) {
 		taskService.deleteById(id);
 	}
 	
+	// http://localhost:8080/api/tasks/1 Peticion tipo Put
 	@PutMapping
 	public Task update(@RequestBody Task task) {
 		Task taskDb = taskService.findById(task.getId());
@@ -47,5 +50,11 @@ public class TaskController {
 		taskDb.setDescription(task.getDescription());
 		taskDb.setStatus(task.getStatus());
 		return taskService.update(taskDb);
+	}
+	
+	// http://localhost:8080/api/tasks/1
+	@GetMapping("/{id}")
+	public Task findById(@PathVariable Long id) {
+		return taskService.findById(id);
 	}
 }
