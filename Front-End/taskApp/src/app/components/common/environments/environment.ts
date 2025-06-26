@@ -1,4 +1,4 @@
 export const environment={
   produccion: false,
-  apiUrl:'http://localhost:8090/api/tasks',
+  apiUrl:'http://localhost:8080/api/tasks',
 }
