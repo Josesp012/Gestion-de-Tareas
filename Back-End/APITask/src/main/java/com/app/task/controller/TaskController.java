@@ -20,9 +20,9 @@ import com.app.task.mapper.Mapper;
 import com.app.task.model.entity.Task;
 import com.app.task.service.TaskService;
 
+@CrossOrigin(origins={"http://localhost:4200"})
 @RestController
 @RequestMapping("/api/tasks") // http://localhost:8080/api/tasks
-@CrossOrigin(origins="http://localhost:4200")
 public class TaskController {
 	
 	private final TaskService taskService;
