@@ -3,18 +3,18 @@ Aplicación de “Gestión de Tareas” (To-Do list) que permita a un usuario:  
 
 APi Rest (Back-End):
 - Lenguaje: Java EE.
-- Frameworks: SpringBoot, Maven
+- Frameworks: SpringBoot, Maven: Dependencias (Spring Data JPA, Spring Starter Web, Spring Starter Validation, Spring Devtools, Oracle Driver)
 Pagina Web (Front-End):
 - Lenguajes: TypeScript, HTML, CSS.
-- Framework: Angular, Node.js 
+- Frameworks: Angular, Node.js 
 
 Instalacion: 
 Base de datos: Oracle 19c, SQL Developer 
 
-API Rest: Eclipse Version 2023, Apache Maven, Postman
+Back-End: Eclipse Version 2023, Apache Maven, Postman
 
-Pagina Web: Visual Studio Code: Extensiones: Angular Language Service, Angular Snippets, Auto Rename Tag, autoclose, Error Lens, Live Server, Material Icon Theme, Monokai Vibrant
-Node.js, Npm, Angular_Cli
+Front-End: Visual Studio Code: Extensiones (Angular Language Service, Angular Snippets, Auto Rename Tag, autoclose, Error Lens, Live Server, Material Icon Theme, Monokai Vibrant
+Node.js, Npm, Angular_Cli)
 
 Variables del entorno:
 -C:\Program Files\Java\jdk-17.0.2
